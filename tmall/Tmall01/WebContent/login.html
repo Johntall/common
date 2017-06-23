@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录</title>
+<style type="text/css">
+	.input{
+		text-align: center;
+		
+	}
+	
+
+</style>
+</head>
+<body>
+<h1 class="input">帐户登录</h1>
+<form action="loginservlet" method="post" enctype="application/x-www-form-urlencoded">
+<div class="input">用户名
+<input class="in" name="lgname" >
+</div>
+<div class="input">密码
+<input class="in" name="lgpwd" type="password">
+</div>
+<div class="input">
+<input id="check" name="rem" type="checkbox" value="true">
+<label for="check">记住密码7天</label>
+<input type="submit" value="登录">
+</div>
+
+</form>
+</body>
+</html>
