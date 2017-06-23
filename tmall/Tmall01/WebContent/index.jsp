@@ -128,10 +128,8 @@ select * from category;
 </div>
 </div>
 </div>
-<div id="row1">平板电视</div>
-<div id="row2">马桶</div>
-<div id="row3">沙发</div>
-<div id="row4">平板电视</div>
+<div id="result"></div>
+
 
 
 </body>

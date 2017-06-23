@@ -43,7 +43,19 @@ function picture() {
     req.onreadystatechange=function(){
     	if (this.readyState===4 && this.status===200){
     		
-    		
+    	    var json = this.responseText;
+            var parse = JSON.parse(json);
+        var rst=document.getElementById("result");
+        rst.innerText=json;
+//
+//        for (var obj in parse) {
+//        	var imagePath = parse[obj];
+//        }
+//        function createBanner(image) {
+//            var img = document.getElementById("img");
+//            img.setAttribute("src", "img/lunbo/1.jpg")
+//
+//        }
     		
     		
     		
