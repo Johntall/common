@@ -20,10 +20,10 @@ public class CategoryTool {
 		ArrayList<String> url=new ArrayList<>();
 		for (Integer i : r) {
 			
-			File f = new File("http://localhost/Tmall01/img/productSingle_middle/"+i+".jpg");
+			File f = new File("D:/Git/web/tmall/Tmall01/WebContent/img/productSingle_middle/"+i+".jpg");
+            
 			if(f.exists()){
-				url.add(f.getPath());
-				System.out.println("true");
+				url.add("/Tmall01/img/productSingle_middle/"+i+".jpg");
 			}
 		}
 		return url;

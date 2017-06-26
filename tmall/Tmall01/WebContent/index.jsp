@@ -60,16 +60,16 @@
 	width:1180px;
 	height:500px;
 	}
+	#result img{
+		margin: 2px 2px 2px 2px;
+		position: relative;
+		left: 5%
+	}
 
 </style>
 </head>
 <body>
-<%
 
-
-
-
-%>
 <sql:setDataSource var="snapshot" driver="org.mariadb.jdbc.Driver" 
 url="jdbc:mariadb://127.0.0.1:3306/tmall?useUnicode=true&characterEncoding=utf-8" 
 user="jttest" password="9933"/>
@@ -99,16 +99,14 @@ select * from category;
 <div id="catmenu">
 <ul>
 <li id="catlist"><a>商品分类</a>
+<!-- 根据数据库查找品类目录，用jstl把数据库里所有品类列出来,
+并且给每个品类添加onclick事件，用于显示图片　-->
 <div>
 <c:forEach var="row" items="${result.rows}">
 <p id="<c:out value="${row.id}"/>"><c:out value="${row.name}"/></p>
-
-
 </c:forEach>
-
-
-
 </div>
+
 </li>
 <li><a>天猫超市</a></li>
 <li><a>天猫国际</a></li>
@@ -121,14 +119,16 @@ select * from category;
 
 </div>
 <div id="catbody">
-
 <div id="lunbo">
 <img  alt="" src="img/lunbo/1.jpg">
+</div>
+</div>
+</div>
+<!-- 根据品类查询出来的所有图片(只过滤出在硬盘上有的)　添加到下面的div中 -->
+<div id="result">
+
 
 </div>
-</div>
-</div>
-<div id="result"></div>
 
 
 

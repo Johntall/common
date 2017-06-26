@@ -5,11 +5,11 @@
 
 window.onload=initHead;
 function initHead() {
+window.setInterval(lunbo,3000);
 var mydd=document.getElementById("catlist");
 mydd.onclick=showList;
 mydd.onmouseout=hideList;
-window.setInterval(lunbo,3000);
-var list=mydd.children[1].children;
+var list=mydd.children[1].children;//给每个品类都添加onclick事件
 for (var i=0;i<list.length;i++ ){
     list[i].onclick=picture;
     }
@@ -44,23 +44,21 @@ function picture() {
     	if (this.readyState===4 && this.status===200){
     		
     	    var json = this.responseText;
-            var parse = JSON.parse(json);
-        var rst=document.getElementById("result");
-        rst.innerText=json;
-//
-//        for (var obj in parse) {
-//        	var imagePath = parse[obj];
-//        }
-//        function createBanner(image) {
-//            var img = document.getElementById("img");
-//            img.setAttribute("src", "img/lunbo/1.jpg")
-//
-//        }
+            var parse = JSON.parse(json);//解析json数据为数组
+        var result=document.getElementById("result");
+        result.firstChild.remove();
+        var piclist=document.createElement("div");
+        for(var pnum=0;pnum<parse.length;pnum++){
+        	 var img=document.createElement("img");
+             img.src=parse[pnum];
+             piclist.appendChild(img);//在图片展示区添加图象元素
+        }
+        result.appendChild(piclist);
+        
+    
     		
     		
     		
-    		
-    		self.innerText=this.responseText;
     	}
     }
 }
