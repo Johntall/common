@@ -55,7 +55,7 @@ function picture() {
         }
         result.appendChild(piclist);
         
-    
+    //浏览器中的图片会有缓存，一般只第一次载入会传输，浏览器会观察返回包头里的if-modified-since来自动决定调用缓存还是传输
     		
     		
     		
