@@ -7,8 +7,8 @@ window.onload=initHead;
 function initHead() {
 window.setInterval(lunbo,3000);
 var mydd=document.getElementById("catlist");
-mydd.onclick=showList;
-mydd.onmouseout=hideList;
+//mydd.onmouseover=showList;
+//mydd.onmouseout=hideList;
 var list=mydd.children[1].children;//给每个品类都添加onclick事件
 for (var i=0;i<list.length;i++ ){
     list[i].onclick=picture;
@@ -19,9 +19,9 @@ for (var i=0;i<list.length;i++ ){
 function showList() {
     this.children[1].style.display="block";
 }
-function hideList() {
-	this.children[1].style.display="block";//先不隐藏了
-}
+//function hideList() {
+//	this.children[1].style.display="none";//先不隐藏了
+//}
 
 var count=0;//轮播循环
 function lunbo() {
@@ -33,7 +33,7 @@ function lunbo() {
     	count=1;
     }
 }
-
+var lastChoice;
 
 function picture() {
     var req=new XMLHttpRequest();
@@ -49,16 +49,21 @@ function picture() {
         result.firstChild.remove();
         var piclist=document.createElement("div");
         for(var pnum=0;pnum<parse.length;pnum++){
-        	 var img=document.createElement("img");
+        	var a=document.createElement("a");
+        	a.setAttribute("href",parse[pnum].replace(/productSingle_middle/,"productSingle"));
+        	a.setAttribute("target","_blank");
+        	var img=document.createElement("img");
              img.src=parse[pnum];
-             piclist.appendChild(img);//在图片展示区添加图象元素
+        	a.appendChild(img);
+             piclist.appendChild(a);//在图片展示区添加图象元素
         }
         result.appendChild(piclist);
         
     //浏览器中的图片会有缓存，一般只第一次载入会传输，浏览器会观察返回包头里的if-modified-since来自动决定调用缓存还是传输
-    		
-    		
-    		
+    		if(lastChoice){lastChoice.style.background="red";}
+    		self.style.background="green";
+    		lastChoice=self;
+    		window.location.href="#result";
     	}
     }
 }

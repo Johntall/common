@@ -50,7 +50,13 @@
 	background-color: gray;
 	position:relative;
 	}
-	#catlist>div{
+	
+	#catlist:HOVER p{
+		display:block;
+	}
+	
+	
+	#catlist p{
 	display: none;
 	}
 	#search{
@@ -64,6 +70,10 @@
 		margin: 2px 2px 2px 2px;
 		position: relative;
 		left: 5%
+	}
+	.clist:HOVER{
+	background: yellow;
+	cursor: pointer;
 	}
 
 </style>
@@ -103,7 +113,7 @@ select * from category;
 并且给每个品类添加onclick事件，用于显示图片　-->
 <div>
 <c:forEach var="row" items="${result.rows}">
-<p id="<c:out value="${row.id}"/>"><c:out value="${row.name}"/></p>
+<p class="clist" id="<c:out value="${row.id}"/>"><c:out value="${row.name}"/></p>
 </c:forEach>
 </div>
 
